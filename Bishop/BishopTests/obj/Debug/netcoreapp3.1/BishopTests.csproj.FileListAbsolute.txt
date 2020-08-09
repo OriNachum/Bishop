@@ -1,0 +1,8 @@
+C:\Git\Bishop\Bishop\BishopTests\bin\Debug\netcoreapp3.1\BishopTests.deps.json
+C:\Git\Bishop\Bishop\BishopTests\bin\Debug\netcoreapp3.1\BishopTests.dll
+C:\Git\Bishop\Bishop\BishopTests\obj\Debug\netcoreapp3.1\BishopTests.csprojAssemblyReference.cache
+C:\Git\Bishop\Bishop\BishopTests\obj\Debug\netcoreapp3.1\BishopTests.AssemblyInfoInputs.cache
+C:\Git\Bishop\Bishop\BishopTests\obj\Debug\netcoreapp3.1\BishopTests.AssemblyInfo.cs
+C:\Git\Bishop\Bishop\BishopTests\bin\Debug\netcoreapp3.1\BishopTests.runtimeconfig.json
+C:\Git\Bishop\Bishop\BishopTests\bin\Debug\netcoreapp3.1\BishopTests.runtimeconfig.dev.json
+C:\Git\Bishop\Bishop\BishopTests\obj\Debug\netcoreapp3.1\BishopTests.genruntimeconfig.cache

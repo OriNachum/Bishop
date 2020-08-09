@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Git\\Bishop\\Bishop\\Bishop\\Bishop.csproj": {}
+    "C:\\Git\\Bishop\\Bishop\\BishopTests\\BishopTests.csproj": {}
   },
   "projects": {
-    "C:\\Git\\Bishop\\Bishop\\Bishop\\Bishop.csproj": {
+    "C:\\Git\\Bishop\\Bishop\\BishopTests\\BishopTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Git\\Bishop\\Bishop\\Bishop\\Bishop.csproj",
-        "projectName": "Bishop",
-        "projectPath": "C:\\Git\\Bishop\\Bishop\\Bishop\\Bishop.csproj",
+        "projectUniqueName": "C:\\Git\\Bishop\\Bishop\\BishopTests\\BishopTests.csproj",
+        "projectName": "BishopTests",
+        "projectPath": "C:\\Git\\Bishop\\Bishop\\BishopTests\\BishopTests.csproj",
         "packagesPath": "C:\\Users\\ori.nachum\\.nuget\\packages\\",
-        "outputPath": "C:\\Git\\Bishop\\Bishop\\Bishop\\obj\\",
+        "outputPath": "C:\\Git\\Bishop\\Bishop\\BishopTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,13 +42,19 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.Extensions.Hosting": {
+            "xunit": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[2.4.1, )"
             },
-            "Newtonsoft.Json": {
+            "xunit.assert": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
             }
           },
           "imports": [
