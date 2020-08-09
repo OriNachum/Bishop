@@ -2,7 +2,7 @@
 
 namespace BishopTests
 {
-    public class Class1
+    public class BishopServiceTest
     {
     }
 }
