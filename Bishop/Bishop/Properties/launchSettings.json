@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "Bishop": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
