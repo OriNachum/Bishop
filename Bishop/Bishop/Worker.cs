@@ -17,10 +17,10 @@ namespace Bishop
         private readonly IServiceProvider _services;
         private BishopService _bishopService;
 
-        public Worker(ILogger<Worker> logger, HttpClient httpClient, IServiceProvider services = null)
+        public Worker(ILogger<Worker> logger, IHttpClientProvider httpClientProvider, IServiceProvider services = null)
         {
             _logger = logger;
-            _httpClient = httpClient;
+            _httpClient = httpClientProvider.GetHttpClient();
             _services = services;
         }
 
