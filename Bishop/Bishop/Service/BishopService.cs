@@ -37,15 +37,15 @@ namespace Bishop.Service
         {
             bool success = false;
             string request = "https://localhost:8001/ThermalAlert";
-            _logger.LogDebug($"{nameof(BishopService)} - NextCycleAction - httpClient Request {request}");
+            _logger.LogDebug($"{nameof(BishopService)} - {nameof(NextCycleActionAsync)} - httpClient Request {request}");
             try
             {
                 HttpResponseMessage response = await _httpClient.GetAsync(request);
-                _logger.LogDebug($"{nameof(BishopService)} - NextCycleAction - httpClient response {response}");
+                _logger.LogDebug($"{nameof(BishopService)} - {nameof(NextCycleActionAsync)} - httpClient response {response}");
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    _logger.LogError($"{nameof(BishopService)} - NextCycleAction - Error in request for next action. request: { request } response: {response}");
+                    _logger.LogError($"{nameof(BishopService)} - {nameof(NextCycleActionAsync)} - Error in request for next action. request: { request } response: {response}");
                     return;
                 }
                 string responseString = await response.Content.ReadAsStringAsync();
@@ -53,12 +53,12 @@ namespace Bishop.Service
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"{nameof(BishopService)} - NextCycleAction - Error with httpClinet");
+                _logger.LogError(ex, $"{nameof(BishopService)} - {nameof(NextCycleActionAsync)} - Error with httpClinet");
             }
 
             if (!success)
             {
-                _logger.LogInformation($"{nameof(BishopService)} - NextCycleAction - no action to perform");
+                _logger.LogInformation($"{nameof(BishopService)} - {nameof(NextCycleActionAsync)} - no action to perform");
             }
         }
 
