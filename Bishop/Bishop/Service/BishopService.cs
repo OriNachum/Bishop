@@ -11,10 +11,10 @@ namespace Bishop.Service
 {
     public class BishopService : IBishopService
     {
-        private readonly TimeSpan SleepTime = TimeSpan.FromSeconds(5);
         private readonly ILogger _logger;
         private readonly HttpClient _httpClient;
-        private ITimer timer;
+        private readonly TimeSpan SleepTime = TimeSpan.FromSeconds(10);
+        private DateTime? LastRun;
         private bool disposedValue;
 
         public BishopService(HttpClient httpClient, ILogger logger)
@@ -23,14 +23,13 @@ namespace Bishop.Service
             _logger = logger;
         }
 
-        public async Task StartAsync()
+        public async Task PerformNextActionAsync()
         {
-            await NextCycleActionAsync();
-            Func<Task> GenerateNextCycleAction = NextCycleActionAsync;
-            ITimer oldTimer = timer;
-            timer = new GapBasedTimer(GenerateNextCycleAction, SleepTime, _logger);
-            oldTimer?.Dispose();
-            timer.InitializeCallback(GenerateNextCycleAction, SleepTime);
+            if (!LastRun.HasValue || (DateTime.UtcNow - LastRun) > SleepTime )
+            {
+                await NextCycleActionAsync();
+                LastRun = DateTime.UtcNow;
+            }
         }
 
         private async Task NextCycleActionAsync()
@@ -69,10 +68,8 @@ namespace Bishop.Service
                 if (disposing)
                 {
 
-                    timer?.Dispose();
                 }
 
-                timer = null;
                 disposedValue = true;
             }
         }

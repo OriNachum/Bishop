@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Bishop.Service;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Bishop
 {
@@ -19,7 +20,9 @@ namespace Bishop
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddHttpClient<IHttpClientProvider, HttpClientProvider>();
+                    services.AddLogging();
+                    services.AddSingleton<ILogger>((serviceProvider) => serviceProvider.GetService<ILogger<Worker>>());
+                    services.AddHttpClient<IBishopService, BishopService>();
                     services.AddHostedService<Worker>();
                 });
     }

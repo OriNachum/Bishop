@@ -13,24 +13,19 @@ namespace Bishop
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly HttpClient _httpClient;
-        private readonly IServiceProvider _services;
-        private BishopService _bishopService;
+        private IBishopService _bishopService;
 
-        public Worker(ILogger<Worker> logger, IHttpClientProvider httpClientProvider, IServiceProvider services = null)
+        public Worker(IBishopService bishopService, ILogger<Worker> logger)
         {
             _logger = logger;
-            _httpClient = httpClientProvider.GetHttpClient();
-            _services = services;
+            _bishopService = bishopService;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _bishopService?.Dispose();
-                _bishopService = new BishopService(_httpClient, this._logger);
-                await _bishopService.StartAsync();
+                await _bishopService.PerformNextActionAsync();
             }
         }
     }
